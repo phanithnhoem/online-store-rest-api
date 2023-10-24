@@ -1,4 +1,4 @@
-package com.academy.onlinestore.api.auth;
+package com.academy.onlinestore.api.user;
 
 import jakarta.persistence.*;
 import lombok.Getter;

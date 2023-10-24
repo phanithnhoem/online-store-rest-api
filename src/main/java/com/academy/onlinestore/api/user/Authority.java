@@ -1,5 +1,6 @@
-package com.academy.onlinestore.api.auth;
+package com.academy.onlinestore.api.user;
 
+import com.academy.onlinestore.api.user.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

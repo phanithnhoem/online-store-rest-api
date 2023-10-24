@@ -1,4 +1,4 @@
-package com.academy.onlinestore.api.auth;
+package com.academy.onlinestore.api.user;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -28,7 +28,7 @@ public class User {
     @Column(length = 10)
     private String verifiedCode;
     private Boolean isVerified;
-    private Boolean isActive;
+    private Boolean isDeleted;
     // Set users as a main resource of table between users and roles
     @ManyToMany
     @JoinTable(name = "users_roles",
