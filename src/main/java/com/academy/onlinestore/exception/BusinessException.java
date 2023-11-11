@@ -19,7 +19,6 @@ public class BusinessException {
         var baseError = BaseErrorResponse.builder()
                 .message("Something went wrong!")
                 .code(7001)
-                .status(HttpStatus.valueOf(ex.getStatusCode().toString()))
                 .timestamp(LocalDateTime.now())
                 .errors(ex.getReason())
                 .build();

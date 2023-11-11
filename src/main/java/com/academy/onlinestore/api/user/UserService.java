@@ -3,8 +3,13 @@ package com.academy.onlinestore.api.user;
 import com.academy.onlinestore.api.user.web.NewUserDto;
 import com.academy.onlinestore.api.user.web.UpdateUserDto;
 import com.academy.onlinestore.api.user.web.UserDto;
+import org.springframework.security.core.Authentication;
 
 public interface UserService {
+
+    // Retrieve current logged in user
+    UserDto me(Authentication authentication);
+
     // Create a new user
     void createNewUser(NewUserDto newUserDto);
 

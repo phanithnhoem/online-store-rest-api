@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class OnlineStoreApplication implements CommandLineRunner {
 
-    @Value("${application.message.start-up}")
+    @Value("${app.env-profile}")
     private String env;
 
     public static void main(String[] args) {

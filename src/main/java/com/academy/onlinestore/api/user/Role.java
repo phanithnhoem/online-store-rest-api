@@ -1,17 +1,18 @@
 package com.academy.onlinestore.api.user;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "roles")
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,8 +20,8 @@ public class Role {
     private String name;
     // This column defined that the Role table is the owner of relationship
     @ManyToMany(mappedBy = "roles")
-    private List<User> users;
-    @ManyToMany
-    private List<Authority> authorities;
+    private Set<User> users;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Authority> authorities;
 
 }

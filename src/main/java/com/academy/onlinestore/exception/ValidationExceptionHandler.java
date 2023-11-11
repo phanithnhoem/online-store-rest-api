@@ -39,19 +39,6 @@ public class ValidationExceptionHandler {
         return errorDto;
     }
 
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ExceptionHandler(DataIntegrityViolationException.class)
-    public ResponseEntity<BaseErrorResponse> handleDataIntegrityViolationException(DataIntegrityViolationException ex){
-        BaseErrorResponse response = BaseErrorResponse.builder()
-                .message(ex.getMessage())
-                .code(1212)
-                .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .errors(ex.getLocalizedMessage())
-                .timestamp(LocalDateTime.now())
-                .build();
-        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public Map<String, Object> handleHttpMessageNotReadableException(HttpMessageNotReadableException ex){

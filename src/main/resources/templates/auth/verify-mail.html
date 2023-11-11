@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verify Mail</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            color: #404F5E;
+            line-height: 2rem;
+            font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+            margin: 4%;
+        }
+        .verify-code {
+            line-height: 4rem;
+            text-align: center;
+        }
+        ul > li {
+            margin-left: 8%;
+        }
+        b, a{
+            color: #1a82e2;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Hi <span th:text="${username}">Phanith</span>,</h1>
+</header>
+<main>
+    <p>Thank you for signing up for <b>example.onlinestore.com</b>!</p>
+    <p>To verify your account, please enter the following code in the verification field on the website:</p>
+    <h1 class="verify-code" th:text="${metaData}">121212</h1>
+    <p>This code is valid for 15 minutes. If you don't verify your account within 15 minutes, you will need to request a new code.
+        If you have any trouble verifying your account, please contact us at <b>example.support.onlinestore@gmail.com</b>.</p><br>
+    <p>Thanks,<br>The online store team</p><br>
+    <p>Here is an example of how the user would submit the verification code:</p>
+    <ul>
+        <li>Go to the website where you signed up.</li>
+        <li>Click on the "<a href="#">Verify Account</a>&#34; link.</li>
+        <li>Enter the verification code in the verification field.</li>
+        <li>Click the "Verify" button.</li>
+        <li>If the verification code is valid, your account will be verified and you will be able to log in.</li>
+    </ul>
+</main>
+</body>
+</html>

@@ -4,10 +4,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
+
+    Optional<User> findByUsernameAndIsDeletedFalseAndIsVerifiedTrue(String username);
 
 //    JPQL = Jakarta or Java Persistent Query Language
 //    JPQL is Spring data feature for DAO implement with SQL-concept
@@ -19,7 +20,13 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("SELECT u FROM User AS u WHERE u.uuid = :uuid")
     Optional<User> selectUserByUUID(String uuid);
 
-    // Native Query
+    /**
+     * This method used to select users with both isDeleted status(True/False) pass by parameter
+     * To write native query we need to set (nativeQuery = true)
+     * @param uuid
+     * @param isDeleted
+     * @return User Entity
+     */
     @Query(value = "SELECT * FROM users WHERE uuid = ?1 AND is_deleted = ?2", nativeQuery = true)
     Optional<User> selectUserByUuidAndIsDeleted(String uuid, Boolean isDeleted);
 

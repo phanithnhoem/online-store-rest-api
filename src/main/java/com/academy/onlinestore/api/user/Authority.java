@@ -1,18 +1,17 @@
 package com.academy.onlinestore.api.user;
 
-import com.academy.onlinestore.api.user.Role;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "authorities")
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Authority {
 
     @Id
@@ -20,5 +19,5 @@ public class Authority {
     private Integer id;
     private String name;
     @ManyToMany(mappedBy = "authorities")
-    List<Role> roles;
+    Set<Role> roles;
 }
